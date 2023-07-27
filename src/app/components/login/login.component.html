@@ -1,0 +1,19 @@
+<form class="form" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+  <div>
+    <mat-label>Email address*</mat-label>
+    <mat-form-field appearance="outline" floatLabel="always" class="mat-form-field">
+      <input matInput required type="email" ngModel name="email" >
+    </mat-form-field>
+  </div>
+  <div>
+    <label>Password*</label>
+    <mat-form-field appearance="outline" class="mat-form-field">
+      <input matInput [type]="hide ? 'password' : 'text'" class="input" name="password" ngModel>
+      <button type="button" mat-icon-button class="mat-icon-button" matSuffix (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <button mat-flat-button class="mat-flat-button" color="primary" type="submit">Login</button>
+</form>
